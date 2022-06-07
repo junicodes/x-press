@@ -5,7 +5,7 @@ import DefaultInput from "../../sub-elements/elements/DefaultInput";
 import { Logo, FormikButton, DefaultButton } from "../../sub-elements";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { handleFormValidation } from "../../../utils/validations/signInValidation";
+import { handleFormSignInValidation } from "../../../utils/validations/signInValidation";
 import { useNavigate } from "react-router-dom";
 
 
@@ -46,7 +46,7 @@ const SignInView = () => {
       <h2 className="text-2xl text-white">Log into your Business Manager</h2>
       <Formik
         initialValues={{ email: "", password: "" }}
-        validate={handleFormValidation}
+        validate={handleFormSignInValidation}
         onSubmit={handleFormSubmit}
       >
         {({

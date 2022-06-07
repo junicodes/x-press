@@ -5,7 +5,7 @@ import DefaultInput from "../../sub-elements/elements/DefaultInput";
 import { Logo, FormikButton, DefaultButton } from "../../sub-elements";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { handleFormValidation } from "../../../utils/validations/signInValidation";
+import { handleFormSignUpValidation } from "../../../utils/validations/signInValidation";
 import { useNavigate } from "react-router-dom";
 import mainStyles from '../main.module.scss';
 
@@ -24,7 +24,7 @@ const SignUpView = () => {
     { setSubmitting }: any
   ) => {
     setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+      alert(JSON.stringify(values, null, 3));
       setSubmitting(false);
     }, 400);
   };
@@ -45,7 +45,7 @@ const SignUpView = () => {
       <h2 className="text-2xl text-white">Log into your Business Manager</h2>
       <Formik
         initialValues={{ firstname: "", lastname: "", email: "", password: "" }}
-        validate={handleFormValidation}
+        validate={handleFormSignUpValidation}
         onSubmit={handleFormSubmit}
       >
         {({
