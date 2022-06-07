@@ -42,7 +42,7 @@ const SignUpView = () => {
     return (
     <div className={`p-4 md:p-6 flex flex-col sm:px-12 xl:px-12 overflow-auto ${mainStyles.authView}`}>
       <Logo />
-      <h2 className="text-2xl text-white">Log into your Business Manager</h2>
+      <h2 className="text-2xl text-white">Register an account</h2>
       <Formik
         initialValues={{ firstname: "", lastname: "", email: "", password: "" }}
         validate={handleFormSignUpValidation}
