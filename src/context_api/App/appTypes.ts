@@ -1,0 +1,1 @@
+export const SIDEBAR_TOGGLE: string = 'SIDEBAR_TOGGLE';

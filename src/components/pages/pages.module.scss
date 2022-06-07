@@ -1,0 +1,18 @@
+//This style holds all custom styling for app pages
+
+//Signin.tsx Page and SignUp Page
+.authStyle {
+    height: 100vh;
+    // .leftVariant {
+        
+    // }
+    .rightVariant {
+        background: #f4f8fc;
+    }
+    @media screen and (min-width: 1900px) {
+        height: 1000px;
+    }
+    @media screen and (max-width: 1200px) {
+        height: 800px;
+    }
+}
