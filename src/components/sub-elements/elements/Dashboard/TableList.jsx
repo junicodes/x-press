@@ -6,38 +6,38 @@ import { VerifiersList } from '../../../../utils/verifiers'
 const Table = () => {
   return (
     <>
-      <div className="mx-auto container bg-white dark:bg-gray-800 shadow rounded">
+      <div className="mx-auto container bg-white shadow rounded">
   
         <div className="w-full overflow-x-scroll xl:overflow-x-hidden">
-          <table className="min-w-full bg-white dark:bg-gray-800">
+          <table className="min-w-full bg-white">
             <thead>
-              <tr className="w-full h-16 border-gray-300 dark:border-gray-200 border-b py-8">
-                  <th className="pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
+              <tr className="w-full h-16 border-gray-300 border-b py-8">
+                  <th className="pl-8 text-gray-600 font-normal pr-6 text-left text-sm tracking-normal leading-4">
                     <input
                       type="checkbox"
-                      className="cursor-pointer relative w-5 h-5 border rounded border-gray-400 dark:border-gray-200 bg-white dark:bg-gray-800 outline-none"
+                      className="cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none"
                       onClick="checkAll(this)"
                     />
                   </th>
-                  <th className="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
+                  <th className="text-gray-600 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
                     First Name
                   </th>
-                  <th className="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
+                  <th className="text-gray-600 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
                     Last Name
                   </th>
-                  <th className="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
+                  <th className="text-gray-600 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
                     Phone Number
                   </th>
-                  <th className="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
+                  <th className="text-gray-600 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
                     Partner
                   </th>
-                  <th className="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
+                  <th className="text-gray-600 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
                     Location
                   </th>
-                  <th className="text-gray-600 dark:text-gray-400 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
+                  <th className="text-gray-600 font-semibold pr-6 text-left text-sm tracking-normal leading-4">
                     Status
                   </th>
-                  <td className="text-gray-600 dark:text-gray-400 font-semibold pr-8 text-left text-sm tracking-normal leading-4">
+                  <td className="text-gray-600 font-semibold pr-8 text-left text-sm tracking-normal leading-4">
                   Actions
                   </td>
                 </tr>
@@ -45,31 +45,31 @@ const Table = () => {
               <tbody>
                 {
                   VerifiersList.map((item, index) => (
-                    <tr key={`${item.firstname}--${index}`} className="h-24 border-gray-300 dark:border-gray-200 border-b">
-                      <td className="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
+                    <tr key={`${item.firstname}--${index}`} className="h-24 border-gray-300 border-b">
+                      <td className="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 tracking-normal leading-4">
                         <input
                           type="checkbox"
-                          className="cursor-pointer relative w-5 h-5 border rounded border-gray-400 dark:border-gray-200 bg-white dark:bg-primary outline-none"
+                          className="cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-primary outline-none"
                           onClick="tableInteract(this)"
                         />
                       </td>
-                      <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">
+                      <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 tracking-normal leading-4">
                         {item.firstname}
                       </td>
-                      <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">
+                      <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 tracking-normal leading-4">
                         {item.lastname}
                       </td>
                       <td className="pr-6 whitespace-no-wrap">
                         <div className="flex items-center">
-                          <p className="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">
+                          <p className="ml-2 text-gray-800 tracking-normal leading-4 text-sm">
                             {item.phone_number}
                           </p>
                         </div>
                       </td>
-                      <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">
+                      <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 tracking-normal leading-4">
                         {item.partner}
                       </td>
-                      <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">
+                      <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 tracking-normal leading-4">
                         {item.location}
                       </td>
                       <td className="pr-6">
@@ -95,14 +95,14 @@ const Table = () => {
                           />
                         </button>
                         {/* <div className="dropdown-content mt-1 absolute left-0 -ml-12 shadow-md z-10 hidden w-32">
-                          <ul className="bg-white dark:bg-gray-800 shadow rounded py-1">
-                            <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
+                          <ul className="bg-white shadow rounded py-1">
+                            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
                               Edit
                             </li>
-                            <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
+                            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
                               Delete
                             </li>
-                            <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
+                            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
                               Duplicate
                             </li>
                           </ul>
