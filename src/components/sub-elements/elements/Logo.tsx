@@ -6,11 +6,11 @@ const Logo = () => {
   return (
     <DefaultImage
       src={appLogo}
-      variant={"w-32 h-3"}
+      variant={"w-24 h-6 sm:w-36 sm:h-8"}
       handleChange={() => {}}
-      alt="SME LOGO"
+      alt="XPRESS LOGO"
       value={""}
-      containerVariant={"mb-20 mt-10"}
+      containerVariant={"flex flex-row justify-center py-3"}
     />
   );
 };

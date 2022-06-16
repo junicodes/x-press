@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+.logoTitle {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Fjalla One', sans-serif;
+    color: #12457b;
+}
+
+.navTab {
+    &:hover {
+        background: #F2FAFF;
+    }
+}
+.navTabActive {
+    background: #F2FAFF;
+    border-left: 3px solid #039BF0;
+}

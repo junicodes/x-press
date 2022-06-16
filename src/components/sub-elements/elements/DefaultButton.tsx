@@ -16,8 +16,7 @@ const DefaultButton = ({
         onClick={handleClick}
         disabled={isDisabled}
       >
-        {icon}
-        &nbsp;&nbsp;&nbsp;
+        {icon && <span className="mr-1"> {icon} </span>}
         {labelText}
       </button>
     </div>

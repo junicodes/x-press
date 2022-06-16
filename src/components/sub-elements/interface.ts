@@ -8,12 +8,24 @@ export interface DefaultInputProps {
   label: string
   placeHolder: string;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleBlur: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
   value: string;
-  error: string | false | undefined;
+  error?: string | false | undefined;
   variant: string;
   containerVariant: string;
   icon?: any
+}
+
+export interface SelectDropDownProps {
+  label: string
+  placeHolder: string;
+  onHandleChange: (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>, payload: string) => void;
+  value: string;
+  error: string | false | undefined;
+  options: {}[];
+  variant: string;
+  containerVariant: string;
+  optionHeight?: string
 }
 
 export interface DefaultImageProps {

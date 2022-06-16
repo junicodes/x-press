@@ -1,7 +1,7 @@
 
-import { PaneProps } from "../interafce";
+import { LayerProps } from "../interafce";
 
-const Pane = ({variant, children}: PaneProps) => {
+const Pane = ({variant, children}: LayerProps) => {
     return (
         <div className={variant}>
             {children}  

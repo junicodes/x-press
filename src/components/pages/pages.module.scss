@@ -2,17 +2,13 @@
 
 //Signin.tsx Page and SignUp Page
 .authStyle {
-    height: 100vh;
-    // .leftVariant {
-        
-    // }
-    .rightVariant {
-        background: #f4f8fc;
-    }
+    height: 83.688rem;
+    background: #F5F6F8;
+
     @media screen and (min-width: 1900px) {
-        height: 1000px;
+        height: 83.688rem;
     }
-    @media screen and (max-width: 1200px) {
-        height: 800px;
-    }
+    // @media screen and (max-width: 1200px) {
+    //     height: 800px;
+    // }
 }

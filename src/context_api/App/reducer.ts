@@ -11,6 +11,21 @@ import { AppReducerAction } from './types.js';
             ...state, 
             sideBarToggle: action.payload 
           };
+        case 'CURRENT_SCREEN':
+          return {
+            ...state, 
+            currentScreen: action.payload 
+          };
+        case 'SiGN_UP_PAYLOAD':
+          return {
+            ...state, 
+            signupPayload: action.payload 
+          };
+        case 'MODAL_INFO':
+          return {
+            ...state, 
+            modalInfo: action.payload 
+          };
         default:
           throw new Error(`Unknown action: ${action.type}`);
       }

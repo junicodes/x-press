@@ -5,10 +5,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#2D74DA',
-        'gray-black': '#010101',
-        'grey-black': '#010101',
+        primary: '#039BF0',
+        primary_hover: '#0993e0',
+        'custom-gray': '#606060',
+        'custom-gray-two': '#CCCCCC',
+        'custom-gray-three': '#1A1619',
+        'custom-gray-four': '#ABA7AF',
+        'custom-gray-five': '#333333',
         'sonic-silver': '#747474',
+        'custom-dark-purple': '#4B3A5A',
         success: '#2D9CDB',
         info: '#2D9CDB',
       },

@@ -15,9 +15,10 @@ const DefaultInput = ({
 }: DefaultInputProps) => {
   return (
     <div className={containerVariant}>
-      <label className="mb-10 text-white">{label}</label>
+      <label htmlFor={`input${name}`} className="text-custom-gray-three text-sm font-medium">{label}</label>
       {icon}
       <input
+        id={`input${name}`}
         type={type}
         name={name}
         onChange={handleChange}
@@ -26,7 +27,7 @@ const DefaultInput = ({
         className={variant}
         placeholder={placeHolder}
       />
-      <p className="text-red-200 text-sm py-1">{error}</p>
+      <p className="text-red-600 text-xs h-2">{error}</p>
     </div>
   );
 };

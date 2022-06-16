@@ -1,3 +1,4 @@
 export { default as SignInView } from "./elements/SignInView";
-export { default as SignUpView } from "./elements/SignUpView";
-export { default as Wallpaper } from "./elements/Wallpaper";
+export { default as SignUpStepOne } from "./elements/SignUpStepOne";
+export { default as SignUpStepTwo} from "./elements/SignUpStepTwo";
+export { default as DashboardView} from "./elements/DashboardView";

@@ -1,7 +1,7 @@
 import { TwoSplitColumnProps } from "../interafce";
 import Pane from "./Pane";
 
-export const TwoSplitColumn = ({ children, leftVariant = '', rightVariant = '' }: TwoSplitColumnProps) => {
+const TwoSplitColumn = ({ children, leftVariant = '', rightVariant = '' }: TwoSplitColumnProps) => {
 
     const [ left, right ] = children;
 
@@ -16,3 +16,5 @@ export const TwoSplitColumn = ({ children, leftVariant = '', rightVariant = '' }
         </section>
     );
 }
+
+export default TwoSplitColumn;

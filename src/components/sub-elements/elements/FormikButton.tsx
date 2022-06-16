@@ -5,6 +5,7 @@ const FormikButton = ({
   variant,
   containerVariant,
   isDisabled,
+  icon
 }: FormikButtonProps) => {
   return (
     <div className={containerVariant}>
@@ -13,6 +14,7 @@ const FormikButton = ({
         className={variant}
         disabled={isDisabled}
       >
+        {icon && <span className="mr-1"> {icon} </span>}
         {labelText}
       </button>
     </div>

@@ -6,6 +6,16 @@ import { AppContextProps } from './types';
 //Object Shared State Default Store
 let INITIAL_STATE: AppContextState = {
   sideBarToggle: true,
+  currentScreen: 'sign-up',
+  signupPayload: null,
+  modalInfo: {
+    status: false,
+    icon: null,
+    titleHeader: "",
+    info: "",
+    faintColor: "",
+    btnText: ""
+  }
 };
 
 //Create context here

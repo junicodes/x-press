@@ -1,51 +1,83 @@
-import { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Formik } from "formik";
 import { SignInFormValue } from "../types";
-import DefaultInput from "../../sub-elements/elements/DefaultInput";
-import { Logo, FormikButton, DefaultButton } from "../../sub-elements";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import { handleFormSignInValidation } from "../../../utils/validations/signInValidation";
+import {
+  FormikButton,
+  SelectDropDown,
+  DefaultImage,
+  DefaultInput,
+} from "../../sub-elements";
+import {
+  handleFormSignInValidation,
+  validateSignUpFile,
+} from "../../../utils/validations/signInValidation";
 import { useNavigate } from "react-router-dom";
+import mainStyles from "../main.module.scss";
+import { State } from "../../../utils/state";
+import { iconPending, simpleLineIconsCloudDownload } from "../../../utils/images";
+import { GiPaperClip } from "react-icons/gi";
+import { AiFillEye, AiFillEyeInvisible, AiOutlineLoading3Quarters } from "react-icons/ai";
+import { MODAL_INFO, SiGN_UP_PAYLOAD } from '../../../context_api/App/appTypes';
+import { useAppContext } from "../../../context_api/App/AppProvider";
 
 
-const SignInView = () => {
-  
+
+const SignInView = ({onHandleSigninSubmit}: {onHandleSigninSubmit: (data: any) => void}) => {
+
+  //Use Context
+  const {appContext, setAppContext} = useAppContext();
+
   //State
-  const [eyePassword, setEyePassword] = useState<"password" | "text">(
-    "password"
-  );
+  const [eyePassword, setEyePassword] = useState<{password: "password" | "text"}>({
+    password: "password",
+  });
+
+  const { signupPayload } = appContext;
+
+  //Variable
+  const initialValueData = {
+    business_email_address: "",
+    password: "",
+  };
 
   //navigation
   const navigate = useNavigate();
 
   //Handler Function
+  const handlePasswordView = (): void => {
+    setEyePassword({...eyePassword, ['password']: eyePassword.password === "password" ? "text" : 'password'})
+  };
+  
+
   const handleFormSubmit = (
     values: SignInFormValue,
     { setSubmitting }: any
   ) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 400);
+    //Validate image and business category file
+    setTimeout(() =>{
+        //Validate user an access dashboard
+        setSubmitting(false);
+
+        //Set tp parent component to store to memery
+        onHandleSigninSubmit(values)
+        
+    }, 2000)
   };
 
-  const handlePasswordView = (): void => {
-    (eyePassword === "password") ? setEyePassword("text") : setEyePassword("password");
-  };
 
-  const handleGoogleLogin = () => {
-    setTimeout(() => {
-      alert(JSON.stringify('Google Login activated'));
-      //Send to API Here for Google Login
-    }, 400);
-  }
   return (
-    <div className={`h-full p-4 md:p-6 flex flex-col sm:px-12 xl:px-12`}>
-      <Logo />
-      <h2 className="text-2xl text-white">Log into your Business Manager</h2>
+    <div
+      className={`p-4 px-8 sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-5/12 2xl:w-4/12 mx-auto bg-white rounded-md ${mainStyles.authView}`}
+    >
+      <div>
+        <h2 className="text-2xl text-primary">Welcome Back!</h2>
+        <p className="text-xs text-custom-gray mt-1">
+        Sign in to your Xpress reward partner’s dashboard
+        </p>
+        <hr className="my-4"></hr>
+      </div>
       <Formik
-        initialValues={{ email: "", password: "" }}
+        initialValues={initialValueData}
         validate={handleFormSignInValidation}
         onSubmit={handleFormSubmit}
       >
@@ -59,72 +91,66 @@ const SignInView = () => {
           isSubmitting,
           /* and other goodies */
         }) => (
-          <form onSubmit={handleSubmit} className="h-auto py-6 w-full">
+          <form onSubmit={handleSubmit} className="pb-6 pt-2 w-full">
             <DefaultInput
-              type="email"
-              name="email"
-              label="Email Address"
-              placeHolder="someone@email.com"
-              handleChange={handleChange}
-              handleBlur={handleBlur}
-              value={values.email}
-              error={errors.email && touched.email && errors.email}
-              variant="w-full h-12 mt-3 rounded-sm text-black-300 px-2"
-              containerVariant="w-full pb-5 relative"
+                type="text"
+                name="business_email_address"
+                label="Email Address"
+                placeHolder=""
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                value={values.business_email_address}
+                error={
+                    errors.business_email_address &&
+                    touched.business_email_address &&
+                    errors.business_email_address
+                }
+                variant="w-full h-12 mt-1 border border-custom-gray-two rounded-md text-black-300 px-2"
+                containerVariant="w-full pb-5 relative"
             />
-            <DefaultInput
-              type={eyePassword}
-              name="password"
-              label="Enter Your Password"
-              placeHolder="Password"
-              handleChange={handleChange}
-              handleBlur={handleBlur}
-              value={values.password}
-              error={errors.password && touched.password && errors.password}
-              variant="w-full h-14 mt-3 rounded-sm text-black-300 px-2"
-              containerVariant="w-full pb-5 relative"
-              icon={
-                eyePassword === "password" ? (
-                  <AiFillEyeInvisible
-                    onClick={handlePasswordView}
-                    className="absolute right-4 w-6 h-6 top-1/2 -mt-2 cursor-pointer"
-                    color="#c1c4c9"
-                  />
-                ) : (
-                  <AiFillEye
-                    onClick={handlePasswordView}
-                    className="absolute right-4 w-6 h-6 top-1/2 -mt-2 cursor-pointer"
-                    color="#c1c4c9"
-                  />
-                )
-              }
-            />
-            <FormikButton
-              labelText="SIGN IN"
-              variant="border w-full h-12 rounded-sm text-white font-bold hover:bg-white hover:text-black mt-2"
-              containerVariant=""
-              isDisabled={isSubmitting}
-            />
+            <div>
+                <DefaultInput
+                type={eyePassword.password}
+                name="password"
+                label="Password"
+                placeHolder="Password"
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                value={values.password}
+                error={errors.password && touched.password && errors.password}
+                variant="w-full h-12 mt-1 border border-custom-gray-two rounded-md text-black-300 px-2"
+                containerVariant="w-full pb-5 relative"
+                icon={
+                    eyePassword.password === "password" ? (
+                    <AiFillEyeInvisible
+                        onClick={handlePasswordView}
+                        className="absolute right-4 w-6 h-6 top-1/2 -mt-2 cursor-pointer"
+                        color="#c1c4c9"
+                    />
+                    ) : (
+                    <AiFillEye
+                        onClick={handlePasswordView}
+                        className="absolute right-4 w-6 h-6 top-1/2 -mt-2 cursor-pointer"
+                        color="#c1c4c9"
+                    />
+                    )
+                }
+                />
+            </div>
+            <p className="text-sm text-custom-gray mt-1">
+              Forgot Password? <span className="text-primary" onClick={() => navigate("/reset-password")}>Reset it</span>
+            </p>
+            <div className="flex flex-row justify-start items-center mt-5">
+              <FormikButton
+                labelText={!isSubmitting ? "Sign in" : `Loading`}
+                variant="border border-custom-gray-two w-full h-14 rounded-md text-white font-normal bg-primary hover:bg-primary_hover"
+                containerVariant="w-full"
+                isDisabled={isSubmitting}
+              />
+            </div>
           </form>
         )}
       </Formik>
-      <div className="flex flex-col justify-center items-center w-full my-4">
-        <p className="text-white cursor-pointer" onClick={() => navigate(`/sign-up`)}>
-          <span className="opacity-50">Don’t have an account?&nbsp;&nbsp;</span>
-          <span className="font-bold">Sign Up</span>
-        </p>
-        <p className="text-white mt-6 font-bold cursor-pointer" onClick={() => alert("Forget pass link clicked")}>
-          <span>Forget Password?&nbsp;</span>
-        </p>
-      </div>
-      <DefaultButton
-        labelText="Log in with Google"
-        handleClick={handleGoogleLogin}
-        variant="border w-full h-12 rounded-sm bg-white text-gray-500 mt-2 flex flex-row justify-center item-center pt-3"
-        containerVariant="relative"
-        isDisabled={false}
-        icon={<FcGoogle className="w-6 h-6" />}
-      />
     </div>
   );
 };

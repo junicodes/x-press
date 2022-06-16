@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 //Pane Props components/layout/elements/Pane.tsx
-export interface PaneProps {
+export interface LayerProps {
     variant: string,
     children: ReactNode
 }
