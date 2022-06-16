@@ -43,8 +43,8 @@ const DashboardHeader = () => {
 
   return (
    <>
-   <div className='md:h-28 w-full flex flex-col md:flex-row justify-between items-center px-8'>
-     <div className='w-5/12'>
+   <div className='md:h-28 w-full flex flex-col md:flex-row justify-between items-center px-8 pt-10 md:pt-2'>
+     <div className=''>
         <SelectDropDown
                 label=""
                 placeHolder=""
@@ -53,29 +53,29 @@ const DashboardHeader = () => {
                 error={``}
                 options={verifiers}
                 variant={`w-full relative h-12 border bg-white rounded-md text-black-300 px-2 flex flex-row justify-start items-center`}
-                containerVariant="w-72 relative cursor-pointer"
+                containerVariant="w-40 lg:w-72 relative cursor-pointer"
                 optionHeight={'auto'}
             />
         </div>
 
-        <div className="rounded-md flex justify-between md:justify-end space-x-4 px-5 order-first md:order-last w-7/12">
+        <div className="rounded-md flex justify-between md:justify-end space-x-4 px-5 order-first md:order-last">
             <SearchInput onHandleSearchChange={handleSearchChange}/>
             <DefaultButton
                 labelText={'Add New Verifier'}
                 handleClick={() => console.log("add file")}
-                variant="w-full h-12 rounded-md bg-primary hover:primary_hover text-white flex flex-row justify-center item-center pt-3"
-                containerVariant="relative w-48 cursor-pointer"
+                variant="w-full h-12 text-xs lg:text-md rounded-md bg-primary hover:primary_hover text-white flex flex-row justify-center item-center pt-4"
+                containerVariant="relative w-48 px-2 lg:w-48 cursor-pointer"
                 isDisabled={false}
                 icon={ 
                     <FiPlus
-                        className="left-2 w-6 h-6"
+                        className="left-2 w-4 h-4 lg:w-5 lg:h-5 -mt-1"
                         color="#ffffff"
                     />
                 }
             />
         </div>
     </div>
-    <p className='px-8 font-normal text-lg pb-3'>Welcome {signupPayload?.business_name}</p>
+    <p className='px-8 font-semibold text-lg pb-3'>Hello, {signupPayload?.business_name}</p>
    </>
   )
 }

@@ -28,7 +28,7 @@ const Dashboard = () => {
   return (
     <section className={`3xl:container mx-auto w-full ${pageStyles.authStyle}`}>
       <TwoSplitColumn 
-        leftVariant={`${pageStyles.leftVariant} w-full bg-white md:w-3/12 lg:w-2/12 xl:w-1/6 ${sideBarToggle ? 'block' : 'hidden'}`} 
+        leftVariant={`${pageStyles.leftVariant} w-full bg-white  md:w-3/12 lg:w-2/12 xl:w-1/6 ${sideBarToggle ? 'block' : 'hidden'}`} 
         rightVariant={
           `${pageStyles.rightVariant} md:w-9/12 lg:w-10/12 xl:w-5/6 md:rounded-l-xl`
         }

@@ -24,7 +24,7 @@ const SearchInput = ({onHandleSearchChange}: SearchInputProps) => {
       handleChange={handleChange}
       value={search}
       variant="w-full h-12 pl-10 taxt-sm border-custom-gray-two rounded-md text-black-300 px-2"
-      containerVariant="w-72 relative"
+      containerVariant="w-42 lg:w-72 relative"
       icon={ 
         <BsSearch
             className="absolute left-2 w-5 h-5 top-1/2 -mt-3 cursor-pointer"

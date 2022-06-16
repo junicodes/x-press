@@ -37,7 +37,7 @@ const SignUp = () => {
           payload: {
             status: true,
             icon: iconPending,
-            titleHeader: "Pending",
+            titleHeader: "Error",
             info: "User with account does not exist",
             faintColor: "#FF9900",
             btnText: 'Close'
@@ -64,7 +64,7 @@ const SignUp = () => {
         payload: {
           status: true,
           icon: iconPending,
-          titleHeader: "Pending",
+          titleHeader: "Error",
           info: "User email or password are incorrect",
           faintColor: "#FF9900",
           btnText: 'Close'
